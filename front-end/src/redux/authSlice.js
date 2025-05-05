@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 
 // API Base URL
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://learning-management-system-o8nu.onrender.com/api/auth";
 
 // ✅ Register User
 export const registerUser = createAsyncThunk(
