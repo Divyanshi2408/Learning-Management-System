@@ -39,20 +39,20 @@ const LoadingScreen = () => (
 );
 
 function App() {
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // Simulate a 2-second loading delay
-  //   const timer = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3000);
+  useEffect(() => {
+    // Simulate a 2-second loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
 
-  //   return () => clearTimeout(timer); // Cleanup
-  // }, []);
+    return () => clearTimeout(timer); // Cleanup
+  }, []);
 
-  // if (isLoading) {
-  //   return <LoadingScreen />; // Show only the loading screen
-  // }
+  if (isLoading) {
+    return <LoadingScreen />; // Show only the loading screen
+  }
 
   return (
     <Router>
