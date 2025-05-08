@@ -25,3 +25,29 @@ A full-featured Learning Management System (LMS) web application built with the 
 - MongoDB (Mongoose)
 - JWT for Auth
 - Stripe API or Razorpay (Optional for Payments)
+
+## 🛠️ Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/lms-project.git
+cd lms-project
+```
+### 2. Install Server Dependencies
+```
+cd server
+npm install
+npm run dev
+```
+
+### 3. Install Client Dependencies
+```
+cd ../client
+npm install
+npm start
+```
+
+## 💬 Contact
+📧 [divyanshipal2808@gmail.com]
+
