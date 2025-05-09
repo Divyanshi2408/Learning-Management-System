@@ -24,7 +24,6 @@ A full-featured Learning Management System (LMS) web application built with the 
 - Express.js
 - MongoDB (Mongoose)
 - JWT for Auth
-- Stripe API or Razorpay (Optional for Payments)
 
 ## 🛠️ Installation
 
