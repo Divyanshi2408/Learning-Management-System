@@ -30,7 +30,7 @@ A full-featured Learning Management System (LMS) web application built with the 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/lms-project.git
+git clone https://github.com/Divyanshi2408/Learning-Management-System.git
 cd lms-project
 ```
 ### 2. Install Server Dependencies
