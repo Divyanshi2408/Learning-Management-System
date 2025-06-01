@@ -4,7 +4,7 @@ A full-featured Learning Management System (LMS) web application built with the 
 
 ### Preview
 
-Here are some screenshots of the Music Player:
+Here are some screenshots of the Learning Management System:
 
 ![Image](https://github.com/user-attachments/assets/5c482ee5-c8be-4796-83f0-e72d8235942f)
 
