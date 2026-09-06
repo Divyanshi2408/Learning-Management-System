@@ -25,6 +25,8 @@ const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage.jsx"));
 const FAQPage = lazy(() => import("./pages/FAQPage.jsx"));
 const ComingSoon = lazy(() => import("./pages/ComingSoon.jsx"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword.jsx"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword.jsx"));
 const StartExam = lazy(() => import("./pages/StartExam.jsx"));
 const UsersList = lazy(() => import("./components/UsersList.jsx"));
 const UserDetails = lazy(() => import("./components/UserDetails.jsx"));
@@ -76,6 +78,8 @@ function App() {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/exam/start/:examId" element={<StartExam />} />
           <Route path="/admin/usersList" element={<UsersList />} />
           <Route path="/users/:id" element={<UserDetails />} />

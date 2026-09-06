@@ -75,6 +75,10 @@ const UserSchema = new mongoose.Schema({
     // Soft Delete (for deactivation)
     isDeleted: { type: Boolean, default: false },
     deletedAt: { type: Date },
+
+    // Forgot Password
+    resetPasswordToken: { type: String },
+    resetPasswordExpires: { type: Date },
 });
 
 module.exports = mongoose.model("User", UserSchema);

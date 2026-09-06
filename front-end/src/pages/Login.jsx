@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, resetAuthState } from "../redux/authSlice";
 import { toast } from "react-toastify";
@@ -8,6 +9,7 @@ function Login({ isOpen, onClose, onRegisterClick }) {
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { loading, error, success } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -29,6 +31,11 @@ function Login({ isOpen, onClose, onRegisterClick }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser(formData));
+  };
+
+  const handleForgotPassword = () => {
+    onClose();
+    navigate("/forgot-password");
   };
 
   if (!isOpen) return null; // ✅ Ensure modal doesn't render when `isOpen` is false
@@ -76,6 +83,15 @@ function Login({ isOpen, onClose, onRegisterClick }) {
               onChange={handleChange}
               required
             />
+            <div className="text-right mt-1">
+              <button
+                type="button"
+                onClick={handleForgotPassword}
+                className="text-xs text-blue-600 hover:underline"
+              >
+                Forgot password?
+              </button>
+            </div>
           </div>
 
           <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">
