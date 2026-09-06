@@ -7,7 +7,7 @@ const NotFound = () => {
         <div className="relative">
           <h1 className="text-8xl font-bold text-gray-800">404</h1>
           <div
-            className="bg-cover bg-center h-80 flex items-center justify-center mx-70 "
+            className="bg-cover bg-center h-80 flex items-center justify-center mx-auto max-w-md"
             style={{
               backgroundImage:
                 "url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)",

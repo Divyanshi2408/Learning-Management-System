@@ -119,10 +119,22 @@ function Register({ isOpen, onClose, onLoginClick }) {
             <form onSubmit={handleSubmit}>
               {(
                 <>
-                  
-
                   {/* Full Name */}
-                  
+                  <div className="mb-3">
+                    <label className="block text-sm font-medium">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      className="w-full p-2 border rounded-md"
+                      placeholder="Enter your full name"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
                   {/* Username */}
                   <div className="mb-3">
                     <label className="block text-sm font-medium">

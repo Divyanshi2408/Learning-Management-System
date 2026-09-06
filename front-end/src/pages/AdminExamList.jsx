@@ -78,7 +78,7 @@ const AdminExamList = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/admin/dash" className="flex items-center gap-2 p-2 hover:bg-blue-700 rounded">
+                            <Link to="/admin/Dash" className="flex items-center gap-2 p-2 hover:bg-blue-700 rounded">
                                 <FiHome /> Back to Admin Dashboard
                             </Link>
                         </li>

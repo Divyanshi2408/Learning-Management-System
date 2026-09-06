@@ -12,15 +12,15 @@ function Login({ isOpen, onClose, onRegisterClick }) {
 
   useEffect(() => {
     if (success) {
-      if (error?.includes("banned")) {
-        toast.warning("Your account is banned. Please contact support.");
-        return;
-      }
       toast.success("Login successfully!");
       onClose(); // ✅ Close modal
       dispatch(resetAuthState()); // ✅ Reset auth state
     }
   }, [success, dispatch, onClose]);
+
+  // A banned account is rejected by the backend as an error response
+  // (not a success), so it's surfaced by the {error && ...} block below,
+  // e.g. "Your account has been banned. Contact support."
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -29,7 +29,10 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/contact', formData);
+      const response = await axios.post(
+        'https://learning-management-system-o8nu.onrender.com/api/contact',
+        formData
+      );
       console.log(response.data);
 
       // Show success message
@@ -172,7 +175,7 @@ const ContactPage = () => {
           {/* Email */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-bold text-gray-800 mb-2">Email</h3>
-            <p className="text-gray-600">info@lms.com</p>
+            <p className="text-gray-600">info@devdojo.com</p>
           </div>
         </div>
       </motion.section>
@@ -201,7 +204,9 @@ const ContactPage = () => {
         className="text-center border-t border-gray-200 pt-8 mt-12"
         variants={itemVariants}
       >
-        <p className="text-gray-600">© 2023 LMS. All rights reserved.</p>
+        <p className="text-gray-600">
+          &copy; {new Date().getFullYear()} DevDojo. All rights reserved.
+        </p>
       </motion.footer>
     </motion.div>
   );

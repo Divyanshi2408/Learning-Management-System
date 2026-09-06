@@ -10,8 +10,8 @@ function CourseCard({ image, category, heading, level, duration, link }) {
         <div className="w-full overflow-hidden">
           <img
             src={image}
-            alt="Course"
-            className="w-[300px] h-[150px] object-cover transform group-hover:scale-105 transition-all"
+            alt={heading || "Course"}
+            className="w-full h-[150px] object-cover transform group-hover:scale-105 transition-all"
           />
         </div>
 

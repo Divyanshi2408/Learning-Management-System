@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // Animation variants for Framer Motion
@@ -10,6 +11,24 @@ const containerVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
+};
+
+// Renders a colored initials avatar instead of relying on team photos
+// that don't ship with the project (avoids broken-image icons).
+const InitialsAvatar = ({ name, colorClass }) => {
+  const initials = name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase();
+
+  return (
+    <div
+      className={`w-48 h-48 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold text-white group-hover:scale-105 transition-transform duration-300 ${colorClass}`}
+    >
+      {initials}
+    </div>
+  );
 };
 
 const AboutUsPage = () => {
@@ -41,11 +60,14 @@ const AboutUsPage = () => {
       >
         <h2 className="text-3xl font-semibold mb-4 text-gray-800">Our Mission</h2>
         <p className="text-gray-700 leading-relaxed mb-6">
-          At LMS, our mission is to provide a seamless and engaging learning experience for students, educators, and professionals. We aim to make education accessible, interactive, and effective for everyone.
+          At DevDojo, our mission is to provide a seamless and engaging learning experience for students, educators, and professionals. We aim to make education accessible, interactive, and effective for everyone.
         </p>
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
-          Learn More
-        </button>
+        <Link
+          to="/courses"
+          className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+        >
+          Explore Courses
+        </Link>
       </motion.section>
 
       {/* Team Section */}
@@ -60,11 +82,7 @@ const AboutUsPage = () => {
             className="text-center group"
             variants={itemVariants}
           >
-            <img
-              src="/images/team-member1.jpg"
-              alt="John Doe"
-              className="w-48 h-48 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+            <InitialsAvatar name="John Doe" colorClass="bg-blue-600" />
             <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
               John Doe
             </h3>
@@ -78,11 +96,7 @@ const AboutUsPage = () => {
             className="text-center group"
             variants={itemVariants}
           >
-            <img
-              src="/images/team-member2.jpg"
-              alt="Jane Smith"
-              className="w-48 h-48 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+            <InitialsAvatar name="Jane Smith" colorClass="bg-purple-600" />
             <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
               Jane Smith
             </h3>
@@ -96,11 +110,7 @@ const AboutUsPage = () => {
             className="text-center group"
             variants={itemVariants}
           >
-            <img
-              src="/images/team-member3.jpg"
-              alt="Alice Johnson"
-              className="w-48 h-48 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
+            <InitialsAvatar name="Alice Johnson" colorClass="bg-emerald-600" />
             <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
               Alice Johnson
             </h3>
@@ -130,7 +140,9 @@ const AboutUsPage = () => {
         className="text-center border-t border-gray-200 pt-8 mt-12"
         variants={itemVariants}
       >
-        <p className="text-gray-600">© 2023 LMS. All rights reserved.</p>
+        <p className="text-gray-600">
+          &copy; {new Date().getFullYear()} DevDojo. All rights reserved.
+        </p>
       </motion.footer>
     </motion.div>
   );

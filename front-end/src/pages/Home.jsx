@@ -58,33 +58,6 @@ const Home = () => {
     { src: angular, alt: "Angular" },
   ];
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Emma Hart",
-      text: "Massa amet, at dolor tellus pellentesque aenean in eget massa tincidunt habitasse volutpat adipiscing sed id sit auctor eu vivamus nulla.",
-      image: "/images/emma.jpg",
-    },
-    {
-      id: 2,
-      name: "Eddie Johnson",
-      text: "Ut morbi felis, felis massa quam sit massa, amet, bibendum pulvinar elit in adipiscing amet imperdiet ac felis congue enim, elementum orci.",
-      image: "/images/eddie.jpg",
-    },
-    {
-      id: 3,
-      name: "Jonathan Doe",
-      text: "Donec in varius facilisis justo, curabitur aliquet sit justo sed sit interdum diam dolor ornare quis a felis adipiscing hendrerit quisque enim.",
-      image: "/images/jonathan.jpg",
-    },
-    {
-      id: 4,
-      name: "Mike Edward",
-      text: "Pulvinar dui vitae enim, diam et nulla elit nam leo lacinia et, a, pulvinar gravida enim in blandit mauris vitae volutpat urna, sed justo hendrerit.",
-      image: "/images/mike.jpg",
-    },
-  ];
-
   return (
     <div className="font-sans bg-gray-200">
       <MousePointer />

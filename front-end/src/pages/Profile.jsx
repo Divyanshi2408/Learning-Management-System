@@ -94,7 +94,7 @@ const Profile = () => {
         </div>
 
         <Link to="/updateUser" className="ml-auto">
-          <button className="px-4 py-2 bg-blue-600 max-sm:mr-25 text-white rounded-md hover:bg-blue-700 transition">
+          <button className="px-4 py-2 bg-blue-600 max-sm:mr-24 text-white rounded-md hover:bg-blue-700 transition">
             Edit Profile
           </button>
         </Link>
@@ -222,7 +222,7 @@ const Profile = () => {
           <motion.div className="bg-gradient-to-r from-red-100 to-red-50 p-4 rounded-lg shadow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
             <h3 className="text-xl font-bold text-red-700 mb-2">🛠 Admin Dashboard</h3>
             {currentUser.accessLevel && <p><strong>Access Level:</strong> {currentUser.accessLevel}</p>}
-            <Link to="/admin/dash">
+            <Link to="/admin/Dash">
               <button className="mt-3 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">Go to Admin Panel</button>
             </Link>
           </motion.div>

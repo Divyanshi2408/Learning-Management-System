@@ -23,6 +23,8 @@ const CreateExam = lazy(() => import("./pages/CreateExam.jsx"));
 const ExamList = lazy(() => import("./pages/ExamList.jsx"));
 const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
 const AboutUsPage = lazy(() => import("./pages/AboutUsPage.jsx"));
+const FAQPage = lazy(() => import("./pages/FAQPage.jsx"));
+const ComingSoon = lazy(() => import("./pages/ComingSoon.jsx"));
 const StartExam = lazy(() => import("./pages/StartExam.jsx"));
 const UsersList = lazy(() => import("./components/UsersList.jsx"));
 const UserDetails = lazy(() => import("./components/UserDetails.jsx"));
@@ -42,10 +44,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a 2-second loading delay
+    // Brief branded loading screen on first load
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer); // Cleanup
   }, []);
@@ -72,6 +74,7 @@ function App() {
           <Route path="/create-exam" element={<CreateExam />} />
           <Route path="/exams" element={<ExamList />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/exam/start/:examId" element={<StartExam />} />
           <Route path="/admin/usersList" element={<UsersList />} />
@@ -82,6 +85,14 @@ function App() {
           <Route path="/trainer-courses" element={<TrainerCourses />} /> 
           <Route path="/exams/edit/:examId" element={<EditExam />} /> 
           <Route path="/admin/exams" element={<AdminExamList />} /> 
+          <Route
+            path="/admin/payments"
+            element={<ComingSoon title="Payments" description="Payment history and course revenue tracking is coming soon." />}
+          />
+          <Route
+            path="/admin/reports"
+            element={<ComingSoon title="Reports & Analytics" description="Platform-wide analytics and reporting is coming soon." />}
+          />
           <Route path="*" element={<NotFound />} /> 
         </Routes>
       
