@@ -1,30 +1,31 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-// Uses Gmail SMTP by default. In your .env set:
-//   EMAIL_USER=youraddress@gmail.com
-//   EMAIL_PASS=your16charAppPassword   (Gmail: Account > Security > App Passwords, NOT your normal password)
-// Works with any other SMTP provider too — just change the `service`
-// below to `host`/`port` for that provider if you're not using Gmail.
+// Uses Brevo (formerly Sendinblue) SMTP relay. In your .env set:
+//   BREVO_SMTP_USER=your Brevo login email (from Brevo dashboard > SMTP & API > SMTP)
+//   BREVO_SMTP_KEY=your Brevo SMTP key (NOT your Brevo account password — a separate generated key)
+//   EMAIL_FROM=an email address verified as a sender in Brevo (Senders, Domains & Dedicated IPs)
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp-relay.brevo.com",
+    port: 587,
+    secure: false, // Brevo uses STARTTLS on 587, not implicit TLS
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.BREVO_SMTP_USER,
+        pass: process.env.BREVO_SMTP_KEY,
     },
 });
 
 // Generic sender, reused by password reset (and anything else later).
 const sendEmail = async ({ to, subject, html }) => {
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    if (!process.env.BREVO_SMTP_USER || !process.env.BREVO_SMTP_KEY) {
         console.error(
-            "EMAIL_USER / EMAIL_PASS not set in .env — cannot send email. See utils/emailService.js for setup."
+            "BREVO_SMTP_USER / BREVO_SMTP_KEY not set in .env — cannot send email. See utils/emailService.js for setup."
         );
         throw new Error("Email service is not configured.");
     }
 
     await transporter.sendMail({
-        from: `"DevDojo" <${process.env.EMAIL_USER}>`,
+        from: `"DevDojo" <${process.env.EMAIL_FROM || process.env.BREVO_SMTP_USER}>`,
         to,
         subject,
         html,
